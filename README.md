@@ -13,11 +13,11 @@ Simple project to test React Native
 
 The following tools were used in this project:
 
-[Expo](https://expo.io/)
-[Node.js](https://nodejs.org/en/)
-[React](https://pt-br.reactjs.org/)
-[React Native](https://reactnative.dev/)
-[Javascript] (https://developer.mozilla.org/es/docs/Web/JavaScript)
+-> [Expo](https://expo.io/)
+-> [Node.js](https://nodejs.org/en/)
+-> [React](https://pt-br.reactjs.org/)
+-> [React Native](https://reactnative.dev/)
+-> [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
 ## 📝 License
 
