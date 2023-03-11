@@ -1,44 +1,43 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, Button } from 'react-native';
 
 function GoalsScreen() {
-  const [goal, setGoal] = useState('');
   const [goals, setGoals] = useState([]);
+  const [goal, setGoal] = useState('');
 
   const handleAddGoal = () => {
-    if (goal.trim()) {
-      setGoals([...goals, { id: Math.random().toString(), title: goal.trim() }]);
-      setGoal('');
-    }
-  };
+    setGoals([...goals, goal]);
+    setGoal('');
+  }
 
-  const handleRemoveGoal = (id) => {
-    setGoals((currentGoals) => currentGoals.filter((goal) => goal.id !== id));
-  };
+  const handleDeleteGoal = (goal) => {
+    setGoals(goals.filter(item => item !== goal));
+  }
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
+      <Text style={styles.title}>Añade tus propios objetivos</Text>
+      <View style={styles.box}>
+        <TextInput
+          style={styles.subtitle}
+          placeholder="Escribe tu objetivo"
+          value={goal}
+          onChangeText={text => setGoal(text)}
+        />
+        <TouchableOpacity onPress={handleAddGoal}>
+          <Text style={styles.subtitle}>Añadir objetivo</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.list}>
         <FlatList
           data={goals}
           renderItem={({ item }) => (
-            <View style={styles.goal}>
-              <Text style={styles.goalText}>{item.title}</Text>
-              <TouchableOpacity onPress={() => handleRemoveGoal(item.id)}>
-                <Text style={styles.goalRemove}>X</Text>
-              </TouchableOpacity>
+            <View style={styles.box}>
+              <Text style={styles.text}>{item}</Text>
+              <Button style={styles.delete} title="Borrar" onPress={() => handleDeleteGoal(item)} />
             </View>
           )}
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Agregar un objetivo"
-          value={goal}
-          onChangeText={(text) => setGoal(text)}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleAddGoal}>
-          <Text style={styles.buttonText}>Agregar</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -47,20 +46,40 @@ function GoalsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff',
+    padding: 20,
+  },
+  box: {
+    backgroundColor: '#eee',
+    padding: 20,
+    marginBottom: 20,
+    marginTop: 10,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    textAlign: 'center',
+    marginTop: 40,
+    marginBottom: 20,
   },
   subtitle: {
     fontSize: 18,
     textAlign: 'center',
-    paddingHorizontal: 20,
+    marginBottom: 10,
   },
+  text: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  list: {
+    flex: 1,
+    marginTop: 20,
+  },
+  delete:{
+    backgroundColor: 'red',
+
+  }
 });
 
 export default GoalsScreen;
