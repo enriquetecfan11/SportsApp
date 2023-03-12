@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-function HabitsScreen() {
+function StadisticScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a Habits Screen</Text>
-      <Text style={styles.subtitle}>Empieza a establecer tus objetivos y hábitos ahora mismo!</Text>
+      <Text style={styles.title}>Bienvenido a Stadistic Screen</Text>
     </View>
   );
 }
@@ -29,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HabitsScreen;
+export default StadisticScreen;

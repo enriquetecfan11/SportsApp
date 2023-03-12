@@ -5,7 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './screens/HomeScreen';
 import GoalsScreen from './screens/GoalsScreen';
-import HabitsScreen from './screens/HabitsScreen';
+import StadisticScreen from './screens/StadisticScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,7 @@ function App() {
               iconName = focused ? 'home' : 'home-outline';
             } else if (route.name === 'Goals') {
               iconName = focused ? 'checkmark-circle' : 'checkmark-circle-outline';
-            } else if (route.name === 'Habits') {
+            } else if (route.name == 'Stadictis'){
               iconName = focused ? 'bar-chart' : 'bar-chart-outline';
             }
 
@@ -41,7 +42,8 @@ function App() {
       >
         <Tab.Screen name="Home" component={HomeScreen}/>
         <Tab.Screen name="Goals" component={GoalsScreen}/>
-        <Tab.Screen name="Habits" component={HabitsScreen}/>
+        <Tab.Screen name="Stadictis" component={StadisticScreen}/>
+        <Tab.Screen name="profile" component={ProfileScreen}/>
       </Tab.Navigator>
     </NavigationContainer>
   );

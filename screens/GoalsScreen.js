@@ -33,13 +33,23 @@ function GoalsScreen() {
           data={goals}
           renderItem={({ item }) => (
             <View style={styles.box}>
-              <Text style={styles.text}>{item}</Text>
-              <Button style={styles.delete} title="Borrar" onPress={() => handleDeleteGoal(item)} />
+              <Text style={styles.pruebasText}>{item}</Text>
+              <View style={styles.pruebas}>
+                <Button title="Añadir Prueba" />
+                <Button title="Ver Pruebas" />
+                <Button style={styles.delete} title="Borrar" onPress={() => handleDeleteGoal(item)} />
+              </View>
+              <View style={styles.emojis}>
+                <Button title='👍'></Button>
+                <Button title='👌'></Button>
+                <Button title='🤔'></Button>
+                <Button title='👎'></Button>
+              </View>
             </View>
           )}
         />
       </View>
-    </View>
+    </View >
   );
 }
 
@@ -76,10 +86,27 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 20,
   },
-  delete:{
+  delete: {
     backgroundColor: 'red',
-
-  }
+  },
+  pruebas: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderTopWidth: 1,
+    borderTopColor: '#000',
+    paddingTop: 10,
+  },
+  emojis: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center'
+  },
+  pruebasText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 5,
+  },
 });
 
 export default GoalsScreen;

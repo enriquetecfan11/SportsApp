@@ -4,10 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
-import GoalsScreen from '../screens/GoalsScreen';
-import ProfileScreen from '../screens/HabitsScreen';
-
-
 const HomeScreen = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1eeeb' }}>
