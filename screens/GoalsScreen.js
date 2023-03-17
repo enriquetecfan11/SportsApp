@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, Button, ScrollView } from 'react-native';
 
 function GoalsScreen() {
   const [goals, setGoals] = useState([]);
@@ -17,6 +17,7 @@ function GoalsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Añade tus propios objetivos</Text>
+      {/* Add goals view */}
       <View style={styles.box}>
         <TextInput
           style={styles.subtitle}
@@ -28,16 +29,15 @@ function GoalsScreen() {
           <Text style={styles.subtitle}>Añadir objetivo</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.list}>
-        <FlatList
-          data={goals}
-          renderItem={({ item }) => (
+      {/* List of goals */}
+      <ScrollView style={styles.list}>
+        {goals.map((goal, index) => (
+          <View key={index} style={styles.box}>
             <View style={styles.box}>
-              <Text style={styles.pruebasText}>{item}</Text>
+              <Text style={styles.pruebasText}>{goal}</Text>
               <View style={styles.pruebas}>
                 <Button title="Añadir Prueba" />
                 <Button title="Ver Pruebas" />
-                <Button style={styles.delete} title="Borrar" onPress={() => handleDeleteGoal(item)} />
               </View>
               <View style={styles.emojis}>
                 <Button title='👍'></Button>
@@ -46,9 +46,12 @@ function GoalsScreen() {
                 <Button title='👎'></Button>
               </View>
             </View>
-          )}
-        />
-      </View>
+            <TouchableOpacity onPress={() => handleDeleteGoal(goal)}>
+              <Text style={styles.delete}>Eliminar objetivo</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
     </View >
   );
 }
@@ -61,8 +64,8 @@ const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: '#eee',
-    padding: 20,
-    marginBottom: 20,
+    padding: 5,
+    marginBottom: 10,
     marginTop: 10,
   },
   title: {
@@ -107,6 +110,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 5,
   },
+  list: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+    maxHeight: 570,
+    marginBottom: 40,
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+  }
 });
 
 export default GoalsScreen;

@@ -94,11 +94,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10
   },
-  list: {
-    flex: 1,
-    width: '100%',
-    paddingHorizontal: 20,
-  },
   box: {
     backgroundColor: '#fff',
     borderRadius: 8,
@@ -123,6 +118,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     maxHeight: 570,
     marginBottom: 40,
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
   }
 });
 
