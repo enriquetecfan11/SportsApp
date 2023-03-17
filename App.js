@@ -25,9 +25,10 @@ function App() {
               iconName = focused ? 'checkmark-circle' : 'checkmark-circle-outline';
             } else if (route.name == 'Stadictis'){
               iconName = focused ? 'bar-chart' : 'bar-chart-outline';
+            } else if (route.name == 'profile'){
+              iconName = focused ? 'person' : 'person-outline';
             }
 
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: '#000000',
