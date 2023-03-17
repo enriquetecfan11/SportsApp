@@ -47,7 +47,7 @@ function GoalsScreen() {
               </View>
             </View>
             <TouchableOpacity onPress={() => handleDeleteGoal(goal)}>
-              <Text style={styles.delete}>Eliminar objetivo</Text>
+              <Text style={styles.subtitle}>Eliminar objetivo</Text>
             </TouchableOpacity>
           </View>
         ))}
